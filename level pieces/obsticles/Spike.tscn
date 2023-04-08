@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/images/tilemap images/tilemap.png" type="Texture" id=1]
+[ext_resource path="res://Spike.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 30, 36.6667 )
+
+[node name="Spike" type="KinematicBody2D" groups=["danger"]]
+scale = Vector2( 0.3, 0.3 )
+z_index = -1
+script = ExtResource( 2 )
+
+[node name="Collision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2( 6.10352e-05, 23.3334 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 151.025, 220.355, 127.173, 133.739 )
+
+[node name="Delay timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Hide timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Delay timer" to="." method="_on_Delay_timer_timeout"]
+[connection signal="timeout" from="Hide timer" to="." method="_on_Hide_timer_timeout"]

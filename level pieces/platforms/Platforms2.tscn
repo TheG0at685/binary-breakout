@@ -1,0 +1,152 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://trap.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/tilemap images/tilemap.png" type="Texture" id=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 136, 0, 136, 136, 0, 136 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 0, 136, 0, 136, 136, 0, 136 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 0, 0, 136, 0, 136, 136, 0, 136 )
+
+[sub_resource type="TileSet" id=2]
+1/name = "tilemap.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 277, 0, 136, 136 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 1 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "tilemap.png 2"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 283, 216, 136, 136 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 3 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+4/name = "tilemap.png 4"
+4/texture = ExtResource( 2 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 461, 216, 138, 136 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape = SubResource( 4 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+4/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 16.5, 10 )
+
+[node name="Platforms1" type="Node2D"]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 0.25, 0.25 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 134, 134 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( -327668, -1073741820, 0, -327667, 4, 0, -262132, -1073741822, 0, -262131, -1610612734, 0, -196596, -1073741822, 0, -196595, -1610612734, 0, -131060, -1073741822, 0, -131059, -1610612734, 0, -65524, -1073741822, 0, -65523, -1610612734, 0, -65519, -1073741820, 0, -65518, 4, 0, -65512, 2, 0, -65511, 2, 0, 12, -1073741822, 0, 13, -1610612734, 0, 17, -1073741822, 0, 18, -1610612734, 0, 65548, -1073741822, 0, 65549, -1610612734, 0, 65553, -1073741822, 0, 65554, -1610612734, 0, 131072, -1073741820, 0, 131073, 2, 0, 131074, 4, 0, 131084, -1073741822, 0, 131085, -1610612734, 0, 131089, -1073741822, 0, 131090, -1610612734, 0, 196608, -1073741822, 0, 196609, 1, 0, 196610, -1610612734, 0, 196613, -1073741820, 0, 196614, 4, 0, 196620, -1073741822, 0, 196621, -1610612734, 0, 196625, -1073741822, 0, 196626, -1610612734, 0, 262144, -1073741822, 0, 262145, 1, 0, 262146, -1610612734, 0, 262149, -1073741822, 0, 262150, -1610612734, 0, 262156, 1610612740, 0, 262157, -1610612732, 0, 262161, -1073741822, 0, 262162, -1610612734, 0, 327680, 1610612740, 0, 327681, 1610612738, 0, 327682, -1610612732, 0, 327685, -1073741822, 0, 327686, -1610612734, 0, 327697, -1073741822, 0, 327698, -1610612734, 0, 393221, -1073741822, 0, 393222, -1610612734, 0, 393233, -1073741822, 0, 393234, -1610612734, 0, 458757, -1073741822, 0, 458758, -1610612735, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0, 458762, 2, 0, 458763, 2, 0, 458764, 2, 0, 458765, 2, 0, 458766, 2, 0, 458767, 2, 0, 458768, 2, 0, 458769, -1610612735, 0, 458770, -1610612734, 0, 524293, 1610612740, 0, 524294, 1610612738, 0, 524295, 1610612738, 0, 524296, 1610612738, 0, 524297, 1610612738, 0, 524298, 1610612738, 0, 524299, 1610612738, 0, 524300, 1610612738, 0, 524301, 1610612738, 0, 524302, 1610612738, 0, 524303, 1610612738, 0, 524304, 1610612738, 0, 524305, 1610612738, 0, 524306, -1610612732, 0 )
+
+[node name="trap" type="Area2D" parent="."]
+position = Vector2( 188, 92 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trap"]
+position = Vector2( -1.5, 0 )
+shape = SubResource( 5 )
+
+[node name="trap2" type="Area2D" parent="."]
+position = Vector2( 221, 92 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trap2"]
+position = Vector2( -1.5, 0 )
+shape = SubResource( 5 )
+
+[node name="trap3" type="Area2D" parent="."]
+position = Vector2( 252, 224 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trap3"]
+position = Vector2( -1.5, 0 )
+shape = SubResource( 5 )
+
+[node name="trap4" type="Area2D" parent="."]
+position = Vector2( 286, 224 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trap4"]
+position = Vector2( -1.5, 0 )
+shape = SubResource( 5 )
+
+[node name="trap5" type="Area2D" parent="."]
+position = Vector2( 421, 225 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trap5"]
+position = Vector2( -1.5, 0 )
+shape = SubResource( 5 )
+
+[node name="trap6" type="Area2D" parent="."]
+position = Vector2( 455, 225 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trap6"]
+position = Vector2( -1.5, 0 )
+shape = SubResource( 5 )
+
+[node name="trap7" type="Area2D" parent="."]
+position = Vector2( 508, 127 )
+rotation = 1.5708
+script = ExtResource( 1 )
+saw_trap = true
+spike_trap = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trap7"]
+position = Vector2( -1.5, 0 )
+scale = Vector2( 1, 6 )
+shape = SubResource( 5 )
