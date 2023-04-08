@@ -12,8 +12,8 @@
 background_mode = 4
 glow_enabled = true
 glow_intensity = 8.0
-glow_blend_mode = 1
-glow_hdr_scale = 3.22
+glow_blend_mode = 0
+glow_hdr_scale = 3.49
 glow_high_quality = true
 
 [node name="World" type="Node2D"]
@@ -43,3 +43,11 @@ wait_time = 0.2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_right = 1045.0
+margin_bottom = 612.0
+color = Color( 0, 0, 0, 1 )
