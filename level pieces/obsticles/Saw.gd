@@ -12,7 +12,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print($"Delay timer".time_left)
+	pass
 
 
 func _on_Delay_timer_timeout():

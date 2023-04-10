@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 export var can_wall_jump = true
 
-const SPEED = 200.0
+const SPEED = 300.0
 const JUMP_VELOCITY = -500
 
 # Kill the player if they go below this height
@@ -28,6 +28,7 @@ func _physics_process(delta):
 	apply_gravity(delta)
 	jump()
 	damage()
+	animation()
 	move_and_slide(vel, Vector2(0, -1))
 
 		
@@ -65,7 +66,7 @@ func jump():
 	# Sorry that the statment looks confusing. Bassicly if $Cyote jump is currently counting down and jump key is pressed and we aren't currently jumping and we still have jumps left, jump
 	if $"Cyote jump".time_left > 0 and $"Cyote jump".time_left < $"Cyote jump".wait_time and Input.is_action_just_pressed("jump") and not jumping and jump_count > 0:
 		jumping = true
-	
+	print($"Cyote jump".time_left)
 	if $"Early jump".time_left > 0 and $"Early jump".time_left < $"Early jump".wait_time and is_on_floor():
 		jumping = true
 		jump_count = max_jump_count
@@ -126,9 +127,23 @@ func damage():
 	for thing in get_tree().get_nodes_in_group("danger"):
 		if thing.get_node("Collision").overlaps_body(self):
 			position = Vector2()
+			# despawn all trap spawned dangers
+			for d in get_tree().get_nodes_in_group("danger"):
+				d.queue_free()
 	if position.y > death_height:
 		position = Vector2()
 		vel = Vector2()
+			
 
+func animation():
+	if not vel.x == 0 and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
+		$CollisionShape2D/AnimatedSprite.play("Run")
+	else:
+		$CollisionShape2D/AnimatedSprite.play("default")
+	if Input.is_action_pressed("left"):
+		$CollisionShape2D/AnimatedSprite.flip_h = true
+	elif Input.is_action_pressed("right"):
+		$CollisionShape2D/AnimatedSprite.flip_h = false
+	
 
 

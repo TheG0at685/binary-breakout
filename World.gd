@@ -1,6 +1,6 @@
 extends Node2D
 
-var parts = ["res://level pieces/platforms/Platforms1.tscn", "res://level pieces/platforms/Platforms2.tscn"]
+var parts = ["res://level pieces/platforms/Platforms1.tscn", "res://level pieces/platforms/Platforms2.tscn", "res://level pieces/platforms/Platforms3.tscn"]
 var part_cords = []
 
 
